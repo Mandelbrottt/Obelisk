@@ -1,5 +1,8 @@
 #include "oblpch.h"
+
 #include "Application.h"
+
+#include "Utility/Time.h"
 
 static bool g_created     = false;
 static bool g_initialized = false;
@@ -18,12 +21,13 @@ namespace Obelisk {
 		OBL_ASSERT(g_initialized == false);
 		g_initialized = true;
 
+		m_running = true;
 		// Direct input and output to the console
 		freopen("CONIN$", "r", stdin);
 		freopen("CONOUT$", "w", stdout);
 		freopen("CONOUT$", "w", stderr);
 
-		m_running = true;
+		Time::Init();
 	}
 
 	void Application::Shutdown() {
@@ -35,7 +39,7 @@ namespace Obelisk {
 
 	void Application::Run() {
 		while (m_running) {
-			
+			Time::Update();
 		}
 	}
 }
