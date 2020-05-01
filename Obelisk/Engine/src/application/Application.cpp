@@ -1,26 +1,32 @@
 #include "oblpch.h"
 #include "Application.h"
 
+static bool g_created     = false;
 static bool g_initialized = false;
 
 namespace Obelisk {
 	Application::Application() {
-		OBL_ASSERT(g_initialized == false);
-		g_initialized = true;
+		OBL_ASSERT(g_created == false);
+		g_created = true;
 	}
 
 	Application::~Application() {
-		g_initialized = false;
+		g_created = false;
 	}
 
 	void Application::Init() {
+		OBL_ASSERT(g_initialized == false);
+		g_initialized = true;
+
+		// Direct input and output to the console
 		freopen("CONIN$", "r", stdin);
 		freopen("CONOUT$", "w", stdout);
 		freopen("CONOUT$", "w", stderr);
 	}
 
 	void Application::Shutdown() {
-		
+		OBL_ASSERT(g_initialized == true);
+		g_initialized = false;
 	}
 
 	void Application::Run() {
