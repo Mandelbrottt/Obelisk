@@ -30,7 +30,7 @@ project "Obelisk"
 		"MultiProcessorCompile"
 	}
 	
-	targetdir("%{wks.location}/build/" .. outputdir .. "/")
+	targetdir("%{wks.location}/build/bin/" .. outputdir .. "/")
 	objdir("%{wks.location}/build/obj/" .. outputdir .. "/")
 
 	pchheader "oblpch.hpp"
