@@ -33,5 +33,8 @@ namespace Obelisk {
 		 * \brief The main loop of the application.
 		 */
 		void Run();
+
+	private:
+		bool m_running = true;
 	};
 }

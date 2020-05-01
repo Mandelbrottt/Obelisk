@@ -22,14 +22,20 @@ namespace Obelisk {
 		freopen("CONIN$", "r", stdin);
 		freopen("CONOUT$", "w", stdout);
 		freopen("CONOUT$", "w", stderr);
+
+		m_running = true;
 	}
 
 	void Application::Shutdown() {
 		OBL_ASSERT(g_initialized == true);
 		g_initialized = false;
+
+		m_running = false;
 	}
 
 	void Application::Run() {
-		
+		while (m_running) {
+			
+		}
 	}
 }
