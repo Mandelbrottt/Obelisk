@@ -1,4 +1,9 @@
-#include "oblpch.hpp"
+#include <cstdio>
+#include <application/Application.h>
+
+#if defined _WIN32
+
+#include <Windows.h>
 
 int WINAPI WinMain(
 	HINSTANCE hInstance,
@@ -19,10 +24,18 @@ int WINAPI WinMain(
     freopen("CONOUT$", "w", stderr);
 #endif
 
-	std::cout << "Lmao\n";
-	std::cerr << "Also Lmao";
-	
+	Obelisk::Application* pApp;
+	pApp = new Obelisk::Application;
+	pApp->Init();
+	pApp->Run();
+	pApp->Shutdown();
+	delete pApp;
+
 	getchar();
 
+	FreeConsole();
+	
 	return 0;
 }
+
+#endif
