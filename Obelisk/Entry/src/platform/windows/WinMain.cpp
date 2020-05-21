@@ -20,19 +20,12 @@ int WINAPI WinMain(
 	// Attach to the console if launched from the command line, otherwise create one
     if (!AttachConsole(ATTACH_PARENT_PROCESS))
         AllocConsole();
-
-	// Direct input and output to the console
-    freopen("CONIN$",  "r", stdin);
-    freopen("CONOUT$", "w", stdout);
-    freopen("CONOUT$", "w", stderr);
 #endif
 
-	Obelisk::Application* pApp;
-	pApp = new Obelisk::Application;
-	pApp->Init();
-	pApp->Run();
-	pApp->Shutdown();
-	delete pApp;
+	Obelisk::Application app = {};
+	app.Init();
+	app.Run();
+	app.Shutdown();
 
 	// TEMPORARY
 	getchar();
