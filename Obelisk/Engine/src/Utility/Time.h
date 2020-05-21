@@ -1,12 +1,16 @@
 #pragma once
 
+#include "application/Core.h"
+
 namespace Obelisk {
 	namespace Detail {
 		class TimeImpl;
 	}
 
 	class OBLAPI Time {
-		friend class Application;
+		friend void ::ObeliskApp_Init();
+		friend void ::ObeliskApp_Update();
+		friend void ::ObeliskApp_Render();
 	public:
 		Time()                       = delete;
 		~Time()                      = delete;
@@ -58,10 +62,11 @@ namespace Obelisk {
 		static float SetTimeScale(float a_scale);
 		
 	private:
-		static void  Init();
-		static void  Update();
+		static void Init();
+		static void Update();
+		static void Mark();
 
-		static void  Reset();
+		static void Reset();
 		
 	private:
 		static Detail::TimeImpl* s_timeImpl;
@@ -80,8 +85,9 @@ namespace Obelisk {
 		protected:
 			TimeImpl() = default;
 			
-			virtual void  Init()   = 0;
-			virtual void  Update() = 0;
+			virtual void Init()   = 0;
+			virtual void Update() = 0;
+			virtual void Mark()   = 0;
 
 		protected:
 			float              m_deltaTime             = 0.0f;

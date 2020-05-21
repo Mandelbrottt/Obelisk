@@ -56,4 +56,11 @@ namespace Obelisk::Detail {
 
 		m_lastTime = li.QuadPart;
 	}
+
+	void WinTime::Mark() {
+		LARGE_INTEGER li;
+		QueryPerformanceCounter(&li);
+
+		m_lastTime = li.QuadPart;
+	}
 }

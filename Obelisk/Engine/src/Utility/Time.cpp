@@ -44,6 +44,10 @@ namespace Obelisk {
 		s_timeImpl->Update();
 	}
 
+	void Time::Mark() {
+		s_timeImpl->Mark();
+	}
+
 	void Time::Reset() {
 		delete s_timeImpl;
 		s_timeImpl = nullptr;

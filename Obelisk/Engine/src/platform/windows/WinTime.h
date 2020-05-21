@@ -10,6 +10,7 @@ namespace Obelisk::Detail {
 	protected:
 		void Init() override;
 		void Update() override;
+		void Mark() override;
 
 	private:
 		uint64_t m_timeStart = 0ull;
