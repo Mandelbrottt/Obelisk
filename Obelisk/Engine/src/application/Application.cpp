@@ -4,6 +4,8 @@
 
 #include "Utility/Time.h"
 
+#include "Core.h"
+
 static bool g_created     = false;
 static bool g_initialized = false;
 
@@ -22,12 +24,8 @@ namespace Obelisk {
 		g_initialized = true;
 
 		m_running = true;
-		// Direct input and output to the console
-		freopen("CONIN$", "r", stdin);
-		freopen("CONOUT$", "w", stdout);
-		freopen("CONOUT$", "w", stderr);
 
-		Time::Init();
+		ObeliskApp_Init();
 	}
 
 	void Application::Shutdown() {
@@ -35,11 +33,13 @@ namespace Obelisk {
 		g_initialized = false;
 
 		m_running = false;
+
+		ObeliskApp_Shutdown();
 	}
 
 	void Application::Run() {
 		while (m_running) {
-			Time::Update();
+			ObeliskApp_Update();
 		}
 	}
 }
