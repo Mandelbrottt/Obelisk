@@ -30,7 +30,10 @@ int WINAPI WinMain(
 	// TEMPORARY
 	getchar();
 
+#if !defined(OBL_RELEASE)
+	// Free the console once we're done with it
 	FreeConsole();
+#endif
 	
 	return 0;
 }
