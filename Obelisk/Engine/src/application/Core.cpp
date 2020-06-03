@@ -10,16 +10,20 @@ void ObeliskApp_Init() {
 	freopen("CONOUT$", "w", stderr);
 
 	Obelisk::Time::Init();
+
+	puts("ObeliskApp_Init()");
 }
 
 void ObeliskApp_Shutdown() {
-	
+	puts("ObeliskApp_Shutdown()");
 }
 
 void ObeliskApp_Update() {
 	Obelisk::Time::Update();
+
+	puts("ObeliskApp_Update()");
 }
 
 void ObeliskApp_Render() {
-	
+	puts("ObeliskApp_Render()");
 }
