@@ -4,6 +4,6 @@ build/
 
 # files
 *.sln
-*.vcxproj*
+*.*proj*
 *.user
 *.ini
